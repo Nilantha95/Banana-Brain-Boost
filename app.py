@@ -5,17 +5,17 @@ import threading
 from PIL import Image, ImageTk
 from io import BytesIO
 
-class BananaPuzzleGame:
+class BananaBrainBoost:
     def __init__(self, root):
         self.root = root
-        self.root.title("Banana Puzzle Game")
+        self.root.title("Banana Brain Boost Game")
         self.root.geometry("500x700")
         self.root.configure(bg="#ffeb99")
         
         self.frame = tk.Frame(root, bg="#ffeb99")
         self.frame.pack(pady=20)
         
-        self.label = tk.Label(self.frame, text="Banana Puzzle Game", font=("Arial", 18, "bold"), bg="#ffcc00", fg="#333")
+        self.label = tk.Label(self.frame, text="Banana Brain Boost Game", font=("Arial", 18, "bold"), bg="#ffcc00", fg="#333")
         self.label.pack(pady=10, fill=tk.X)
         
         self.image_label = tk.Label(self.frame, bg="#ffeb99")
@@ -93,6 +93,6 @@ class BananaPuzzleGame:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    game = BananaPuzzleGame(root)
+    game = BananaBrainBoost(root)
     root.mainloop()
 

@@ -4,10 +4,10 @@ import sys
 import os
 
 
-class BananaPuzzleGame:
+class BananaBrainBoost:
     def __init__(self, root):
         self.root = root
-        self.root.title("Banana Puzzle Game")
+        self.root.title("Banana Brain Boost")
         self.root.geometry("500x750")
         self.root.configure(bg="#ffeb99")
         
@@ -15,7 +15,7 @@ class BananaPuzzleGame:
         self.main_menu_frame = tk.Frame(root, bg="#ffeb99")
         self.main_menu_frame.pack(pady=100)
 
-        self.title_label = tk.Label(self.main_menu_frame, text="Banana Puzzle Game", font=("Arial", 24, "bold"), bg="#ffcc00", fg="#333")
+        self.title_label = tk.Label(self.main_menu_frame, text="Banana Brain Boost", font=("Arial", 24, "bold"), bg="#ffcc00", fg="#333")
         self.title_label.pack(pady=10)
 
         # Buttons for Start Game, Leaderboard, Profile, and Quit
@@ -74,6 +74,6 @@ class BananaPuzzleGame:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    game = BananaPuzzleGame(root)
+    game = BananaBrainBoost(root)
     root.mainloop()
 
