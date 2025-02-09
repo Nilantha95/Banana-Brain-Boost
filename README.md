@@ -1,1 +1,3 @@
 # Banana-Brain-Boost
+
+Banana Brain Boost is an interactive Python desktop math game powered by the Banana API, designed to challenge and enhance players' problem-solving skills. Featuring 10 levels of increasing difficulty, a points-based system, and event-driven gameplay, the game keeps users engaged with dynamic math challenges. Players authenticate their profiles, track their progress on a leaderboard, and compete to boost their math proficiency. With seamless interoperability and an intuitive interface, Banana Brain Boost makes learning math fun and rewarding! 🍌🧠🚀
