@@ -1,19 +1,31 @@
 import tkinter as tk
 from tkinter import messagebox
 import requests
-import threading
 from PIL import Image, ImageTk
 from io import BytesIO
+import subprocess
+import sys
+import os
 
 class BananaBrainBoost:
     def __init__(self, root):
         self.root = root
         self.root.title("Banana Brain Boost Game")
-        self.root.geometry("500x700")
+        self.center_window(500, 700)
         self.root.configure(bg="#ffeb99")
         
-        self.frame = tk.Frame(root, bg="#ffeb99")
-        self.frame.pack(pady=20)
+        self.start_game()
+
+    def center_window(self, width, height):
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+        self.root.geometry(f"{width}x{height}+{x}+{y}")
+
+    def start_game(self):
+        self.frame = tk.Frame(self.root, bg="#ffeb99")
+        self.frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         
         self.label = tk.Label(self.frame, text="Banana Brain Boost Game", font=("Arial", 18, "bold"), bg="#ffcc00", fg="#333")
         self.label.pack(pady=10, fill=tk.X)
@@ -39,8 +51,16 @@ class BananaBrainBoost:
         self.timer_label = tk.Label(self.frame, text="Time left: 10s", font=("Arial", 12, "bold"), bg="#ffeb99")
         self.timer_label.pack(pady=5)
         
+        self.back_button = tk.Button(self.frame, text="Go Back", font=("Arial", 12, "bold"), bg="#ff6666", fg="white", command=self.go_back)
+        self.back_button.pack(pady=5)
+        
         self.fetch_puzzle()
-    
+
+    def go_back(self):
+        self.root.destroy()
+        app_path = os.path.abspath("MainGUI.py")
+        subprocess.run([sys.executable, app_path])
+
     def fetch_puzzle(self):
         try:
             response = requests.get("https://marcconrad.com/uob/banana/api.php")
@@ -56,7 +76,7 @@ class BananaBrainBoost:
                 self.feedback_label.config(text="Invalid puzzle data received.", fg="red")
         except Exception as e:
             self.feedback_label.config(text="Error fetching puzzle", fg="red")
-    
+
     def load_image(self, url):
         try:
             img_data = requests.get(url).content
@@ -67,7 +87,7 @@ class BananaBrainBoost:
             self.image_label.image = self.photo
         except Exception as e:
             self.feedback_label.config(text="Error loading image", fg="red")
-    
+
     def check_answer(self):
         try:
             user_answer = int(self.answer_entry.get())
@@ -77,11 +97,11 @@ class BananaBrainBoost:
                 self.feedback_label.config(text="Incorrect. Try again!", fg="red")
         except ValueError:
             self.feedback_label.config(text="Enter a valid number!", fg="red")
-    
+
     def start_timer(self):
         self.time_left = 10
         self.update_timer()
-    
+
     def update_timer(self):
         if self.time_left > 0:
             self.timer_label.config(text=f"Time left: {self.time_left}s")
@@ -95,4 +115,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     game = BananaBrainBoost(root)
     root.mainloop()
-
