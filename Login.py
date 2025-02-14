@@ -41,7 +41,7 @@ entry_password.pack(pady=5)
 # Show Password Checkbox
 show_password_var = tk.BooleanVar()
 show_password_checkbox = tk.Checkbutton(root, text="Show Password", variable=show_password_var, bg="#ffeb3b",
-                                         command=lambda: entry_password.config(show='' if show_password_var.get() else '*'))
+                                        command=lambda: entry_password.config(show='' if show_password_var.get() else '*'))
 show_password_checkbox.pack(pady=5)
 
 # Login Button
