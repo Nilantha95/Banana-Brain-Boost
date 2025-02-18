@@ -25,14 +25,15 @@ class BananaPuzzleGame:
         # Initialize pygame mixer for audio
         pygame.mixer.init()
         self.music_playing = True  # Track if music is playing
-        self.music_file = r"Banana-Brain-Boost\Music Folder\byte-blast-8-bit-arcade-music-background-music-for-video-208780.mp3"  # Path to the music file
+        self.music_file = r"Music Folder\byte-blast-8-bit-arcade-music-background-music-for-video-208780.mp3"
+
         
         # Start playing background music
         pygame.mixer.music.load(self.music_file)
         pygame.mixer.music.play(-1)  # Loop indefinitely
 
         # Load Background Image
-        self.bg_image = Image.open(r"Banana-Brain-Boost\Image Folder\monkey.webp")
+        self.bg_image = Image.open(r"Image Folder\monkey.webp")
         self.bg_image = self.bg_image.resize((500, 750), Image.Resampling.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(self.bg_image)
 
@@ -40,10 +41,10 @@ class BananaPuzzleGame:
         self.bg_label.place(relwidth=1, relheight=1)
 
         # Load and Resize Button Images
-        self.start_button_img = Image.open(r"Banana-Brain-Boost\Image Folder\Screenshot 2025-02-14 200242.png").resize((170, 60), Image.Resampling.LANCZOS)
-        self.leaderboard_button_img = Image.open(r"Banana-Brain-Boost\Image Folder\Screenshot 2025-02-14 173044.png").resize((170, 60), Image.Resampling.LANCZOS)
-        self.profile_button_img = Image.open(r"Banana-Brain-Boost\Image Folder\Screenshot 2025-02-14 200035.png").resize((170, 60), Image.Resampling.LANCZOS)
-        self.quit_button_img = Image.open(r"Banana-Brain-Boost\Image Folder\Screenshot 2025-02-14 200149.png").resize((170, 60), Image.Resampling.LANCZOS)
+        self.start_button_img = Image.open(r"Image Folder/Screenshot 2025-02-14 200242.png").resize((170, 60), Image.Resampling.LANCZOS)
+        self.leaderboard_button_img = Image.open(r"Image Folder\Screenshot 2025-02-14 173044.png").resize((170, 60), Image.Resampling.LANCZOS)
+        self.profile_button_img = Image.open(r"Image Folder\Screenshot 2025-02-14 200035.png").resize((170, 60), Image.Resampling.LANCZOS)
+        self.quit_button_img = Image.open(r"Image Folder\Screenshot 2025-02-14 200149.png").resize((170, 60), Image.Resampling.LANCZOS)
 
         # Convert images to PhotoImage format
         self.start_photo = ImageTk.PhotoImage(self.start_button_img)
