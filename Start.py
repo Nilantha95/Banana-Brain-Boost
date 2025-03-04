@@ -1,6 +1,9 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import pygame
+import subprocess
+import sys
+import os
 
 class BananaPuzzleGame:
     def __init__(self, root):
@@ -90,7 +93,10 @@ class BananaPuzzleGame:
         self.music_button.place(x=160, y=650)  # Position it near the bottom
 
     def start_game(self):
-        print("Start Game Clicked")
+     pygame.mixer.music.stop()
+     self.root.destroy()  # Close the start screen
+     app_path = os.path.abspath("app.py")  # Get the absolute path of app.py
+     subprocess.run([sys.executable, app_path])  # Run app.py
 
     def show_leaderboard(self):
         print("Leaderboard Clicked")
